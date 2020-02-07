@@ -6,7 +6,6 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { useForm } from "react-hook-form";
-import _ from "lodash";
 
 import { get, update, create } from "../../Actions/productActions";
 import { getAll as getAllCategories } from "../../Actions/categoryActions";
@@ -62,15 +61,12 @@ export default function ProductForm({ id }) {
 
   useEffect(() => {
     async function fetch() {
-      const res = await dispatch(getAllCategories());
+      await dispatch(getAllCategories());
       if (id) {
         const { description, price, categories_id } = await dispatch(get(id));
         setValue("description", description);
         setValue("price", price);
         setValue("categories_id", categories_id);
-      } else {
-        const first = _.head(res);
-        setValue("categories_id", first.id);
       }
     }
     fetch();

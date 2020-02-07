@@ -3,7 +3,8 @@
 ## Features
 
 - ReactJS with Hooks
-- Validation form with Hooks
+- Auth Login with API REST
+- Forms validations with Hooks
 - React Router
 - Material UI
 - Bem Metodology
