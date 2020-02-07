@@ -1,4 +1,5 @@
 import Auth from '../Api/Auth';
+import SecureStorage from '../Config/SecureStorage'
 import snackBarUpdate from '../Actions/snackBarActions';
 
 export const ACTIONS = {
@@ -15,7 +16,6 @@ export const login = body => async dispatch => {
             data,
             status
         } = await Auth.login(body);
-        console.log('data ', data)
         let authResponse = [];
         if (status === 200 || status === 201) {
             authResponse = {
@@ -23,8 +23,7 @@ export const login = body => async dispatch => {
                 status
             };
             const { access_token: { token }, user } = data;
-            localStorage.setItem('token', token);
-            console.log('user ', user)
+            SecureStorage.setItem('token', token);
             dispatch({ type: ACTIONS.SET_USER, payload: user })
             dispatch({ type: ACTIONS.SET_LOADING, payload: false })
         }

@@ -1,4 +1,5 @@
 import { ACTIONS } from "../Actions/loginActions";
+import SecureStorage from "../Config/SecureStorage";
 
 const initialState = {
   user: {
@@ -19,8 +20,8 @@ const userReducer = (state = initialState, action) => {
         status: true
       };
     case ACTIONS.LOGOUT:
-      localStorage.removeItem("token");
-      window.location.href = '/'
+      SecureStorage.removeItem("token");
+      window.location.href = '/';
       return {
         ...state,
         ...initialState

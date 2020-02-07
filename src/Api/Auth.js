@@ -9,7 +9,7 @@ const Auth = {
     });
   },
   checkLogin() {
-    return AXIOS.get(`${Prefix.api}/user/check-login`, { headers: headers() });
+    return AXIOS.get(`${Prefix.api}/auth/check-login`, { headers: headers() });
   }
 };
 

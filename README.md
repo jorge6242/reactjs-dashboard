@@ -5,6 +5,7 @@
 - ReactJS with Hooks
 - Auth Login with API REST
 - Forms validations with Hooks
+- LocalStorage Encryption with secure-ls
 - React Router
 - Material UI
 - Bem Metodology
